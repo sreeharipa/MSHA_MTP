@@ -1,0 +1,199 @@
+    
+Null values in data    
+    mineid      False
+    contract     True
+    subunit     False
+    month       False
+    day         False
+    time        False
+    inspoff     False
+    state       False
+    county      False
+    sic         False
+    canvass     False
+    uloc        False
+    umeth       False
+    tradnm      False
+    minemach    False
+    modnum       True
+    shift       False
+    aii         False
+    atype       False
+    injrep      False
+    docnum      False
+    sex         False
+    age         True
+    ywtotal     False
+    ywmine      False
+    ywjob       False
+    occup       False
+    mwactiv     False
+    sourcinj    False
+    natinj      False
+    partbody    False
+    deginj      False
+    daysstat    False
+    daysrest    False
+    dayslost    False
+    permtort    False
+    retwork     False
+    ccidn       False
+    acccode     False
+    invstart    False
+    upaddyr     False
+    upaddno     False
+    upchngyr    False
+    upchngno    False
+    narrcm       True
+    compcode    False
+    narrtxt1     True
+    narrtxt2     True
+    timesnce    False
+    exptotal    False
+    expmine     False
+    expjob      False
+    year        False
+    injtype     False
+    daystotl    False
+    coalmetl    False
+    opercont    False
+    district    False
+    commod      False
+    accinj      False
+
+
+All column names:
+    mineid:	y
+    contract: n moslty null values	
+    subunit: y, useful	
+    month: y	
+    day: y	
+    time: need to be looked at	
+    inspoff: y, some values are numbers	
+    state: y	
+    county: y	
+    sic: y	
+    canvass: y	
+    uloc: y, but some data isnt labelled	
+    umeth: y, but some data is zero	
+    tradnm: n, lots of missing data 	
+    minemach: y, but lots of missing data, might mean no tools tho	
+    modnum: n, numbers that are too random, doesnt make much sense	
+    shift: y, time 	
+    aii: y	
+    atype: y,	
+    injrep: y	
+    docnum: n, unique value for each document, no use here	
+    sex: y, but lots of null values (489 values)	
+    age: y, Null (496 values)	
+    ywtotal: y, dunno which unit
+    ywmine: y, unit unknown	
+    ywjob: y, unit unknown	
+    occup: y, usable, number has title in pdf	(489 null values)
+    mwactiv: y, usable  (489 null values)    	
+    sourcinj: y, usable  (489 null values)
+    natinj: y, usable  (489 null values) 	
+    partbody:y, usable (489 null values) 	
+    deginj: y, usable (489 no injury, ?????gotta check if it has anything  to do with null values in above columns)	
+    daysstat: y, usable (489 null values) 	
+    daysrest: y, (489 null values) 
+    dayslost: y, (489 null values) 	
+    permtort: y, (592 null values)	
+    retwork: y, (489 null values) 	
+    ccidn: n, just document number	
+    acccode: n, useless zeroes in all rows
+    invstart: n, date of investigation started, mostly zeoroes, wont be useful	
+    upaddyr: n, zeroes	
+    upaddno: n, zeroes	
+    upchngyr: n, zeroes	
+    upchngno: n, zeroes	
+    narrcm: y, but there are few nulls 	
+    compcode: n, just null and 'completely entered'	
+    narrtxt1: n, but could be parsed and used, not in scope now	
+    narrtxt2: n, same as above	
+    timesnce: y, useful but nulls are there, gotta change the time range	
+    exptotal: y, nulls are there, gotta change the year range	
+    expmine: y, same as above	
+    expjob: y, same as above	
+    year: n, its all 2020 (makes sense)	
+    injtype: y, useful but so many nulls (potential dependent variable??)	
+    daystotl: y, (489 null values)	
+    coalmetl: y, useful, binary
+    opercont: y, binary 	
+    district: y, useful	
+    commod:	y, useful
+    accinj: y, useful
+
+
+
+Columns left:
+    
+    exptotal: y, nulls are there, gotta change the year range	
+    injtype: y, useful but so many nulls (potential dependent variable??)	
+    daystotl: y, 6000 means either fatal or heavily injured causing retirement
+    coalmetl: y, useful, binary
+    opercont: y, binary 	
+    commod:	y, useful
+    accinj: y, useful
+    district: y, useful	
+    permtort: y,
+    daysstat: y, usable	
+    daysrest: y, 
+    dayslost: y, CONSIDER MAKING EFF DAYS LOST USING ALL 3 DAYS VARIABLE
+    mwactiv: y, usable  	
+    sourcinj: y, usable
+    natinj: y, usable 
+    partbody:y, usable 
+    deginj: y, usable 
+    ywtotal: y, yyww reduced the unique values by using a range of 10 years
+    age: y, usable, continuos values	
+    sex: y, 
+    atype: y, tough to use, but should be used
+    aii: y, useful for graphing, analysis, gotta look at it again
+    sic: y, very useful, graph	
+    canvass: y, very useful, graph
+    subunit: y, can make graphs, 5-6 values
+    shift: y, time, fixed, probabaly not useful for analysis
+
+
+    timesnce: y, useful but nulls are there, nulls cant be replaced for now, will have to use time instead
+    inspoff: y, name of inspection office, maybe useless, is useless, so many unique values
+    county: y, maybe useful	
+    mineid:	y : too much range
+    expmine: y, same as above	
+    expjob: y, same as above
+    narrcm: y, but there are few nulls, coalmetl is similar data withnout nulls
+    retwork: y, not useful, already covered in daystotl	
+    occup: y, usable, number has title in pdf too much unique values, tough to be used in analysis, graph maybe
+    ywmine: y, yyww
+    ywjob: y, yyww THESE Ys ARE NOT VERY USEFUL FOR ANALYSIS BUT CAN HELP IN GRAPHING
+    injrep: y	number of injuries reported in the same accident, doesnt realte to the demographics 
+    time: y, fixed, but there are null values 
+    minemach: y, but lots of missing data, might mean no tools tho, useful for graphs	
+    umeth: y, but some data is zero, graphing
+    uloc: y, but some data isnt labelled, graphing
+    state: y, maybe useful for graphing	
+    month: y, graphs, 12 values, as expected	
+    day: y, has to change the range	
+	
+
+
+
+    The 489 null values relating to people demographics were because the accident didnt affect any person. It was machine failures notified as accident to MSHA. So they can be removed from the dataset.
+
+
+For making clusters:
+    exptotal: y, nulls are there, gotta change the year range
+    coalmetl: y, useful, binary
+    opercont: y, binary 	
+    commod:	y, useful
+    district: y, useful
+    mwactiv: y, usable  	
+    ywtotal: y, yyww reduced the unique values by using a range of 10 years
+    age: y, usable, continuos values	
+    sex: y,
+    sic: y, very useful, graph	
+    canvass: y, very useful, graph
+    subunit: y, can make graphs, 5-6 values
+    shift: y, time, fixed, probabaly not useful for analysis
+    state: y, maybe useful for graphing	

@@ -1,0 +1,22 @@
+df.loc[df.ywtotal <= 1000, 'ywtotal'] = 5
+df.loc[(df.ywtotal > 1000) & (df.ywtotal <= 2000), 'ywtotal'] = 15
+df.loc[(df.ywtotal > 2000) & (df.ywtotal <= 3000), 'ywtotal'] = 25
+df.loc[(df.ywtotal > 3000) & (df.ywtotal <= 4000), 'ywtotal'] = 35
+df.loc[(df.ywtotal > 4000) & (df.ywtotal <= 5000), 'ywtotal'] = 45
+df.loc[(df.ywtotal > 5000) & (df.ywtotal <= 6000), 'ywtotal'] = 55
+
+
+special_chars = ['am', 'pm', ':', ' noon']
+for char in special_chars:
+    df['time'] = df['time'].str.replace(char, '')
+
+df['time'] = df['time'].str.replace('1200 midnight', '0000')
+df["time"] = pd.to_numeric(df["time"])
+df.time = df.time/100
+df = df.astype({"time": int})
+df.loc[df.time == 99, 'time'] = np.
+
+
+
+'exptotal', 'coalmetl', 'opercont', 'commod', 'district', 'ywtotal', 'age', 'sex', 'canvass', 'injtype', 'deginj', 'accinj', 'subunit'
+
